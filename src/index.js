@@ -1,26 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./styles/index.css";
+import App from "./components/App";
+import reportWebVitals from "./reportWebVitals";
 
-/*ReactDOM.render(
+ReactDOM.render(
   <React.StrictMode>
-  <App />
+    <App />
   </React.StrictMode>,
-  document.getElementById('root')
-  ); */
-  
-  // Premier Exercice pour tester React
-  /* function MyComponent() {
+  document.getElementById("root")
+);
+
+// Premier Exercice pour tester React
+/* function MyComponent() {
     return (<h1>La Maison Jungle</h1>)
     console.log('prout parfumé')
   }
   ReactDOM.render(<MyComponent />, document.getElementById('root') )
   */
-  
-  //2ème Exercice pour utiliser le JSX
-  
+
+//2ème Exercice pour utiliser le JSX
+/*
   function Header() {
     const titre = "La Maison Jungle"
     return (<div>
@@ -58,11 +58,9 @@ import reportWebVitals from './reportWebVitals';
       ReactDOM.render(<div><Header /><Description /></div>, 
         document.getElementById('root'))
         */
-        
-        
-        
-        // 3ème exercice réutilisation des composants
-        function Banner() {
+
+// 3ème exercice réutilisation des composants
+/*function Banner() {
           return (<div>
             <Header />
             <Cart />
@@ -72,10 +70,9 @@ import reportWebVitals from './reportWebVitals';
           } 
           
           ReactDOM.render(<Banner />, document.getElementById("root"))
-          
-          
-          // If you want to start measuring performance in your app, pass a function
-          // to log results (for example: reportWebVitals(console.log))
-          // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-          reportWebVitals();
-          
+          */
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();

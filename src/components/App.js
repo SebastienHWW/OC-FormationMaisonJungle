@@ -1,6 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import Banner from "./Banner";
+import Cart from "./Cart";
+import ShoppingList from "./ShoppingList";
 
+function App() {
+  return (
+    <div>
+      {" "}
+      <Banner /> <Cart /> <ShoppingList />
+    </div>
+  );
+}
+
+export default App;
+
+// Code original
+/*
 function App() {
   return (
     <div className="App">
@@ -21,5 +37,4 @@ function App() {
     </div>
   );
 }
-
-export default App;
+*/
