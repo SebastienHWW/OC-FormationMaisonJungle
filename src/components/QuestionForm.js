@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../styles/ShoppingList.css";
 
 function QuestionForm() {
   // Initialisation des variables inputValue + setInputValue comme des variables

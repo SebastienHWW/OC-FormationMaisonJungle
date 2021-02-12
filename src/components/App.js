@@ -1,16 +1,26 @@
-import logo from "./logo.svg";
+import logo from "../assets/logo.svg";
+import "../styles/Layout.css";
 import "../styles/App.css";
 import Banner from "./Banner";
 import Cart from "./Cart";
 import ShoppingList from "./ShoppingList";
 import QuestionForm from "./QuestionForm";
 import Footer from "./Footer";
+import { useState } from "react";
+import Categories from "./Categories";
+import { plantList } from "../datas/plantList";
 
 function App() {
+  var [cartUnits, updateCart] = useState([])
+
   return (
     <div>
-      {" "}
-      <Banner /> <Cart /> <ShoppingList />
+      <Banner /> 
+      <div className='lmj-layout-inner'>
+      <Cart cartUnits={cartUnits} updateCart={updateCart} />
+      <ShoppingList cartUnits={cartUnits} updateCart={updateCart} />
+      
+      </div>
       <QuestionForm />
       <Footer />
     </div>
