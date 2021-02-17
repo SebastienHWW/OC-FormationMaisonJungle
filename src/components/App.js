@@ -1,25 +1,44 @@
-import logo from "../assets/logo.svg";
-import "../styles/Layout.css";
-import "../styles/App.css";
 import Banner from "./Banner";
 import Cart from "./Cart";
 import ShoppingList from "./ShoppingList";
 import QuestionForm from "./QuestionForm";
 import Footer from "./Footer";
-import { useState } from "react";
-import Categories from "./Categories";
-import { plantList } from "../datas/plantList";
+import { useEffect, useState } from "react";
+import "../styles/Layout.css";
+import "../styles/App.css";
+import logo from "../assets/logo.png";
 
 function App() {
-  var [cartUnits, updateCart] = useState([])
+  // savedCart permet de récupérer le panier de l'user
+  const savedCart = localStorage.getItem("cartUnits");
+  const [cartUnits, updateCart] = useState(
+    // Si savedCart existe déjà alors il est traduit de JSON en objet JS.
+    // Sinon le state de cartUnits est initialisé à vide
+    savedCart ? JSON.parse(savedCart) : []
+  );
+
+  const [categActive, updtCategSelect] = useState("");
+
+  useEffect(
+    () => localStorage.setItem("cartUnits", JSON.stringify(cartUnits)),
+    [cartUnits]
+  );
 
   return (
     <div>
-      <Banner /> 
-      <div className='lmj-layout-inner'>
-      <Cart cartUnits={cartUnits} updateCart={updateCart} />
-      <ShoppingList cartUnits={cartUnits} updateCart={updateCart} />
-      
+      <Banner>
+        <img src={logo} alt="La maison jungle" className="lmj-logo" />
+        <h1 className="lmj-title">La Maison Jungle</h1>
+      </Banner>
+
+      <div className="lmj-layout-inner">
+        <Cart cartUnits={cartUnits} updateCart={updateCart} />
+        <ShoppingList
+          cartUnits={cartUnits}
+          updateCart={updateCart}
+          categActive={categActive}
+          updtCategSelect={updtCategSelect}
+        />
       </div>
       <QuestionForm />
       <Footer />

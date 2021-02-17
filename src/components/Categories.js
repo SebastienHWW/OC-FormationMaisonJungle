@@ -1,28 +1,26 @@
-
 import PlantItem from "./PlantItem";
 import { plantList } from "../datas/plantList";
 
-function Categories({categList, categActive, updtCategSelect}) {
+function Categories({ categList, categActive, updtCategSelect }) {
+  return (
+    <div className="lmj-categories">
+      <select
+        className="lmj-categories-select"
+        onChange={(e) => updtCategSelect(e.target.value)}
+        value={categActive}
+      >
+        <option value="">---</option>
 
+        {categList.map((categ) => (
+          <option key={categ} value={categ}>
+            {categ}
+          </option>
+        ))}
+      </select>
 
-    return (
-        <div className="lmj-categories">
-        <select 
-            className="lmj-categories-select"
-            onChange={(e) => updtCategSelect(e.target.value)}>
-                
-            value={categActive} 
-          <option value="" key="269">---</option>
-          {categList.map((categ) => (
-            <option key={categ} value={categ}> {categ} </option>
-          ))}
-        </select>
+      <button onClick={() => updtCategSelect("")}>Réinitialiser</button>
+    </div>
+  );
+}
 
-        <button onClick={() => updtCategSelect("")}>Réinitialiser</button>
-        
-        </div>
-
-    );
-  }
-
-  export default Categories
+export default Categories;

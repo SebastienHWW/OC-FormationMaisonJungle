@@ -1,11 +1,9 @@
 import CareScale from "./CareScale";
 import "../styles/PlantItem.css";
 
-//const { name, cover, id, light, water } = props;
-
 function PlantItem({ name, cover, id, light, water }) {
   return (
-    <li key={id} className="lmj-plant-item" onClick={handleClick}>
+    <li key={id} className="lmj-plant-item">
       <img className="lmj-plant-item-cover" src={cover} alt={`${name} cover`} />
       {name}
       <div>
@@ -16,9 +14,11 @@ function PlantItem({ name, cover, id, light, water }) {
   );
 }
 
-function handleClick(e) {
+/* function handleClick(e) {
   e.preventDefault();
   console.log("🌟Ceci est un clic 🌟", e);
-}
+} */
 
 export default PlantItem;
+
+//onClick={handleClick}
