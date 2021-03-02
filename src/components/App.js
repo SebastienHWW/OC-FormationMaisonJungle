@@ -11,17 +11,17 @@ import logo from "../assets/logo.png";
 function App() {
   // savedCart permet de récupérer le panier de l'user
   const savedCart = localStorage.getItem("cartUnits");
-  const [cartUnits, updateCart] = useState(
+  const [cartItems, setCartItems] = useState(
     // Si savedCart existe déjà alors il est traduit de JSON en objet JS.
     // Sinon le state de cartUnits est initialisé à vide
     savedCart ? JSON.parse(savedCart) : []
   );
 
-  const [categActive, updtCategSelect] = useState("");
+  const [categActive, setCategActive] = useState("");
 
   useEffect(
-    () => localStorage.setItem("cartUnits", JSON.stringify(cartUnits)),
-    [cartUnits]
+    () => localStorage.setItem("cartItems", JSON.stringify(cartItems)),
+    [cartItems]
   );
 
   return (
@@ -32,12 +32,12 @@ function App() {
       </Banner>
 
       <div className="lmj-layout-inner">
-        <Cart cartUnits={cartUnits} updateCart={updateCart} />
+        <Cart cartUnits={cartItems} updateCart={setCartItems} />
         <ShoppingList
-          cartUnits={cartUnits}
-          updateCart={updateCart}
+          cartItems={cartItems}
+          setCartItems={setCartItems}
           categActive={categActive}
-          updtCategSelect={updtCategSelect}
+          setCategActive={setCategActive}
         />
       </div>
       <QuestionForm />

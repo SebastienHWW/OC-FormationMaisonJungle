@@ -29,7 +29,7 @@ function QuestionForm() {
           if (inputValue === strTest) {
             console.log("Saisie correspond à la demande");
           } else {
-            console.log("Saisie ne correspond pas à la demande");
+            alert("Saisie ne correspond pas à la demande");
           }
         }}
       >

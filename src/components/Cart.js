@@ -15,11 +15,17 @@ function Cart({ cartUnits, updateCart }) {
   );
 
   useEffect(() => {
-    document.title = `Panier 🛒 : ${total}💶 à payer `;
+    total > 0
+      ? (document.title = `Panier 🛒 : ${total}💶 à payer `)
+      : (document.title = `La Maison Jungle `);
   }, [total]);
 
   // Début essaies JSON
 
+  function handleRmvPlant(name) {
+    const cartUnitsFiltr = cartUnits.filter((plant) => plant.name !== name);
+    updateCart([...cartUnitsFiltr]);
+  }
   // Fin essaies JSON
 
   return isOpen ? (
@@ -37,6 +43,9 @@ function Cart({ cartUnits, updateCart }) {
             {cartUnits.map(({ name, price, amount }, index) => (
               <div key={`${name}-${index}`}>
                 {name}: {amount} x {price}€
+                <button type="button" onClick={() => handleRmvPlant(name)}>
+                  Supprimer
+                </button>
               </div>
             ))}
           </ul>
